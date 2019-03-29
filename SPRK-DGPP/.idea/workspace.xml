@@ -2,9 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c0387b1e-2c15-4332-aad0-632f585633cb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/.part-00000.crc" beforeDir="false" afterPath="$PROJECT_DIR$/output/.part-00000.crc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/.part-00001.crc" beforeDir="false" afterPath="$PROJECT_DIR$/output/.part-00001.crc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/.part-00002.crc" beforeDir="false" afterPath="$PROJECT_DIR$/output/.part-00002.crc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/.part-00003.crc" beforeDir="false" afterPath="$PROJECT_DIR$/output/.part-00003.crc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/part-00000" beforeDir="false" afterPath="$PROJECT_DIR$/output/part-00000" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/part-00001" beforeDir="false" afterPath="$PROJECT_DIR$/output/part-00001" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/part-00002" beforeDir="false" afterPath="$PROJECT_DIR$/output/part-00002" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/part-00003" beforeDir="false" afterPath="$PROJECT_DIR$/output/part-00003" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/pr/DGPP.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/pr/DGPP.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pr/DGPP.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,17 +29,38 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Makefile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="37" column="16" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="16" />
+            <state relative-caret-position="710">
+              <caret line="57" column="29" lean-forward="true" selection-start-line="57" selection-start-column="29" selection-end-line="57" selection-end-column="29" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/output/part-00001">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="466">
+              <caret line="22" column="50" lean-forward="true" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1414" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/standalone/core-site.xml">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/pr/DGPP.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="204" column="64" selection-start-line="204" selection-start-column="64" selection-end-line="204" selection-end-column="64" />
+            <state relative-caret-position="983">
+              <caret line="122" column="9" lean-forward="true" selection-start-line="122" selection-start-column="9" selection-end-line="122" selection-end-column="9" />
               <folding>
                 <element signature="e#12#45#0" expanded="true" />
               </folding>
@@ -39,7 +71,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/pr/SSSPExample.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
+            <state relative-caret-position="1485">
               <caret line="63" column="43" selection-start-line="63" selection-start-column="35" selection-end-line="63" selection-end-column="43" />
             </state>
           </provider>
@@ -48,8 +80,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/input/blockers.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="41" column="3" selection-start-line="41" selection-start-column="3" selection-end-line="41" selection-end-column="3" />
+            <state relative-caret-position="1386">
+              <caret line="42" selection-start-line="42" selection-end-line="42" />
             </state>
           </provider>
         </entry>
@@ -63,6 +95,8 @@
       <find>dgpp</find>
       <find>arg</find>
       <find>LinkedHashSet</find>
+      <find>path</find>
+      <find>625</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -86,7 +120,7 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="3750" />
     <option name="y" value="1395" />
     <option name="width" value="929" />
@@ -109,7 +143,13 @@
             <path>
               <item name="SPRK-DGPP" type="b2602c69:ProjectViewProjectNode" />
               <item name="SPRK-DGPP" type="462c0819:PsiDirectoryNode" />
-              <item name="datagen" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SPRK-DGPP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SPRK-DGPP" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="standalone" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SPRK-DGPP" type="b2602c69:ProjectViewProjectNode" />
@@ -235,10 +275,10 @@
     <option name="totallyTimeSpent" value="35357000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="877" extended-state="0" />
+    <frame x="2970" y="1049" width="2560" height="1415" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27110156" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27326968" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -340,24 +380,56 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/pr/SSSPExample.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1485">
+          <caret line="63" column="43" selection-start-line="63" selection-start-column="35" selection-end-line="63" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/input/blockers.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="41" column="3" selection-start-line="41" selection-start-column="3" selection-end-line="41" selection-end-column="3" />
+        <state relative-caret-position="1386">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1414" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datagen/src/code/main.cpp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/output/part-00000">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="637" column="51" lean-forward="true" selection-start-line="637" selection-start-column="51" selection-end-line="637" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/output/part-00001">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="466">
+          <caret line="22" column="50" lean-forward="true" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Makefile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="37" column="16" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="16" />
+        <state relative-caret-position="710">
+          <caret line="57" column="29" lean-forward="true" selection-start-line="57" selection-start-column="29" selection-end-line="57" selection-end-column="29" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config/standalone/core-site.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/pr/DGPP.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="204" column="64" selection-start-line="204" selection-start-column="64" selection-end-line="204" selection-end-column="64" />
+        <state relative-caret-position="983">
+          <caret line="122" column="9" lean-forward="true" selection-start-line="122" selection-start-column="9" selection-end-line="122" selection-end-column="9" />
           <folding>
             <element signature="e#12#45#0" expanded="true" />
           </folding>

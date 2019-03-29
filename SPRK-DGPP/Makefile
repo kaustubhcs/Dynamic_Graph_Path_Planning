@@ -35,7 +35,7 @@ local.aws.output=aws
 
 graph.dimension=100
 start.vertex = 1
-end.vertex = 500
+end.vertex = 10000
 # [II]. Basic statistics
 # Number of Nodes: 11,316,811
 # Number of Edges: 85,331,846
@@ -48,8 +48,7 @@ jar:
 
 # Removes local output directory.
 clean-local-output:
-	rm -rf ${local.output}/${aws.project.version}
-	rm -rf ${local.output}/local
+	rm -rf ${local.output}
 
 # Removes local log directory.
 clean-local-log:

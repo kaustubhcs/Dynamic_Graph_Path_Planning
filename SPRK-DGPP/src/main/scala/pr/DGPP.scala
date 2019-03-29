@@ -104,8 +104,11 @@ object path_plan {
       val node_metadata = node._2
       val adj_list = node_metadata._1
       val distance = node_metadata._2
-      var path2start = node_metadata._3
-      path2start.+=(current_vertex)
+      val path2start = node_metadata._3
+      var path2start_new : LinkedHashSet[Int]=  new LinkedHashSet()
+      path2start_new = path2start_new.++(path2start)
+      path2start_new = path2start_new.+(current_vertex)
+      //path2start_new.+=(current_vertex)//.+= (current_vertex)
       var activation = node_metadata._4
       var next_iteration_list = new ListBuffer[(Int,(Set[Int],Int,LinkedHashSet[Int],String))]
       if (activation == "ACTIVE") {
@@ -115,7 +118,7 @@ object path_plan {
           if (neighbour_node == args(END_VERTEX).toInt) {
             exit_status.add(1)
           }
-          val output_node_data = (neighbour_node,(Set(): Set[Int],new_distance,path2start,new_status))
+          val output_node_data = (neighbour_node,(Set(): Set[Int],new_distance,path2start_new,new_status))
           next_iteration_list.+=(output_node_data)
         }
         activation = "DONE"
@@ -187,7 +190,7 @@ object path_plan {
     var done_count_after_planning = 1l
     var looping_counter = 0
     for (i <- 1 until longest_path
-      if done_count_before_planning != done_count_after_planning; ){
+      if done_count_before_planning != done_count_after_planning) {
 
       if (i % 10 == 0){
         done_count_before_planning = final_graph.filter(x => x._2._4 == "DONE").count()
