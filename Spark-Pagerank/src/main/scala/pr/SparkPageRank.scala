@@ -3,7 +3,6 @@ package pr
 import org.apache.spark.SparkConf
 import org.apache.spark.SparkContext
 import org.apache.log4j.LogManager
-import org.apache.spark.rdd.RDD
 
 // $example off$
 import org.apache.spark.sql.SparkSession
@@ -13,12 +12,16 @@ import scala.collection.mutable.ListBuffer
 
 object DGPP {
   
-  def generateGraph(blocked_points: RDD[(Int, Int)]): ListBuffer[(Int, ListBuffer[Int])] = {
+  def getGraphs(k: Int): ListBuffer[(Int, Int)] = {
 
-      val graphList = new ListBuffer[(Int, ListBuffer[Int])]
-      for (i <- 1 until 10 * 10) {
-        
+      val graphList = new ListBuffer[(Int, Int)]
+      for (i <- 1 until k * k) {
 
+        if (i % k != 0)
+        // graphList. += ((i, 0))
+        //  else 
+        graphList. += ((i, i + 1))
+        // graphList.+=((0,i))
       }
       return graphList
     }
@@ -38,13 +41,6 @@ object DGPP {
       .builder
       .appName("SparkPageRank")
       .getOrCreate()
-
-    val textFile = sc.textFile(args(0))
-    val blocked_points :RDD[(Int, Int)] = textFile.map{x => val y = x.split(',')
-                                                      (y(0).toInt , y(1).toInt)}
-
-
-    blocked_points.collect().foreach(println)
 
     
 
