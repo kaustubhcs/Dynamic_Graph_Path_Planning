@@ -30,12 +30,12 @@ aws.num.nodes=5
 aws.instance.type=m4.large
 # update job version before running job
 aws.project.name=DGPP-project
-aws.project.version=v1
+aws.project.version=v3-n-200-clusters-5
 local.aws.output=aws
 
-graph.dimension=500
+graph.dimension=20
 start.vertex = 1
-end.vertex = 250000
+end.vertex = 400
 # [II]. Basic statistics
 # Number of Nodes: 11,316,811
 # Number of Edges: 85,331,846
@@ -48,7 +48,8 @@ jar:
 
 # Removes local output directory.
 clean-local-output:
-	rm -rf ${local.output}
+	# rm -rf ${local.output}/local
+	rm -rf ${local.output}/${aws.project.version}
 
 # Removes local log directory.
 clean-local-log:
@@ -56,7 +57,7 @@ clean-local-log:
 
 # Runs standalone
 local: jar clean-local-output
-	spark-submit --class ${job.name} --master ${local.master} --name "${app.name}" ${jar.path} ${local.input} ${local.output} ${graph.dimension} ${start.vertex} ${end.vertex}
+	spark-submit --class ${job.name} --master ${local.master} --name "${app.name}" ${jar.path} ${local.input} ${local.output}/local ${graph.dimension} ${start.vertex} ${end.vertex}
 
 # Start HDFS
 start-hdfs:
@@ -144,7 +145,7 @@ aws: jar upload-app-aws delete-output-aws
 # Download output from S3.
 download-output-aws: clean-local-output
 	mkdir -p ${local.aws.output}
-	aws s3 sync s3://${aws.bucket.name}/${aws.project.name} ${local.aws.output}
+	aws s3 sync s3://${aws.bucket.name}/${aws.project.name}/${aws.project.version}/${aws.output} ${local.output}/${aws.project.version}
 
 # Download log from S3.
 download-log-aws: clean-local-log
