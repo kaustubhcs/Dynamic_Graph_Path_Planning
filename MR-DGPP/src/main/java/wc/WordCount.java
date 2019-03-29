@@ -7,6 +7,7 @@ import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.Mapper;
@@ -20,6 +21,14 @@ import org.apache.log4j.Logger;
 
 public class WordCount extends Configured implements Tool {
 	private static final Logger logger = LogManager.getLogger(WordCount.class);
+	// KTB Color Vals
+	// Created for Debugging
+	// The Escape Characters will highlight the text in Terminal
+	private final static String KTB_info_stamp = "[\u001b[0;36;01mKTB\u001b[m] ";
+	private final static String KTB_warn_stamp = "[\u001b[0;33;05;01mKTB\u001b[m] ";
+	private final static String KTB_error_stamp = "[\u001b[0;31;05;01mKTB\u001b[m] ";
+	private final static LongWritable incoming_edge = new LongWritable(0);
+	private final static LongWritable outgoing_edge = new LongWritable(100);
 
 	public static class TokenizerMapper extends Mapper<Object, Text, Text, IntWritable> {
 		private final static IntWritable one = new IntWritable(1);
@@ -30,6 +39,7 @@ public class WordCount extends Configured implements Tool {
 			final StringTokenizer itr = new StringTokenizer(value.toString());
 			while (itr.hasMoreTokens()) {
 				word.set(itr.nextToken());
+				logger.info(KTB_warn_stamp + word.toString());
 				context.write(word, one);
 			}
 		}
