@@ -11,33 +11,37 @@ import org.apache.spark.sql.SparkSession
 
 import scala.collection.mutable.ListBuffer
 
-object DGPP {
+object path_plan {
   
-  def generateGraph(blocked_points: RDD[Int]): ListBuffer[(Int, ListBuffer[Int])] = {
-      val k = 5
+
+  def main(args: Array[String]) {
+
+    def generateGraph(blocked_points: Set[Int]): ListBuffer[(Int, ListBuffer[Int])] = {
+
+      val n = args(2).toInt
       val graphList = new ListBuffer[(Int, ListBuffer[Int])]
-      for (i <- 1 to k * k) {
+      for (i <- 1 to n * n
+           if !blocked_points.contains(i)) {
+
         val edgeList = new ListBuffer[Int]
-        if (i + 1 > 0 & blocked_points.f){
+        if (i + 1 > 0  & i + 1 <= n * n & !blocked_points.contains(i+1)){
           edgeList.+=(i+1)
         }
-        if (i - 1 > 0){
+        if (i - 1 > 0 & i - 1 <= n * n & !blocked_points.contains(i-1)){
           edgeList.+=(i-1)
         }
-        if (i - k > 0){
-          edgeList.+=(i-k)
+        if (i - n > 0 & i - n <= n * n & !blocked_points.contains(i-n)){
+          edgeList.+=(i-n)
         }
-        if (i + k > 0){
-          edgeList.+=(i+k)
+        if (i + n > 0 & i + n  <= n * n & !blocked_points.contains(i+ n)){
+          edgeList.+=(i+n)
         }
-//        if blocked_points.filter(x <- x == i)
+
         graphList.+=((i, edgeList))
       }
       return graphList
     }
 
-  def main(args: Array[String]) {
-    
     val logger: org.apache.log4j.Logger = LogManager.getRootLogger
     
     // if (args.length != 2) {
@@ -53,11 +57,11 @@ object DGPP {
       .getOrCreate()
 
     val textFile = sc.textFile(args(0))
-    val blocked_points :RDD[(Int, Int)] = textFile.map{x => val y = x.split(',')
-                                                      (y(0).toInt , y(1).toInt)}
+    val blocked_points :RDD[(Int)] = textFile.map(x => x.toInt)
 
-    val gen_graph = generateGraph(blocked_points)
-    blocked_points.collect()
+    val gen_graph = generateGraph(blocked_points.collect().toSet)
+    gen_graph.foreach(println)
+
 
     
 

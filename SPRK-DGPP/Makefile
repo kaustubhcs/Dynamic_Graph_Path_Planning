@@ -7,7 +7,7 @@ hadoop.root=${HADOOP_HOME}
 app.name=Page Rank
 jar.name=spark-pagerank-1.0.jar
 jar.path=target/${jar.name}
-job.name=pr.DGPP
+job.name=pr.path_plan
 local.input=input
 # local.input=../../../data/Twitter-dataset/data
 local.master=local[4]
@@ -33,7 +33,7 @@ aws.project.name=hw4-spark
 aws.project.version=local
 local.aws.output=aws
 
-max.id=100
+graph.dimension=4
 
 # [II]. Basic statistics
 # Number of Nodes: 11,316,811
@@ -56,7 +56,7 @@ clean-local-log:
 
 # Runs standalone
 local: jar clean-local-output
-	spark-submit --class ${job.name} --master ${local.master} --name "${app.name}" ${jar.path} ${local.input} ${local.output}
+	spark-submit --class ${job.name} --master ${local.master} --name "${app.name}" ${jar.path} ${local.input} ${local.output} ${graph.dimension}
 
 # Start HDFS
 start-hdfs:
