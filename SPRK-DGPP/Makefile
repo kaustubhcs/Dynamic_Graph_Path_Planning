@@ -35,7 +35,7 @@ local.aws.output=aws
 
 graph.dimension=100
 start.vertex = 1
-end.vertex = 10000
+end.vertex = 500
 # [II]. Basic statistics
 # Number of Nodes: 11,316,811
 # Number of Edges: 85,331,846
