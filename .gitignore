@@ -24,7 +24,7 @@ hs_err_pid*
 
 *.xml
 *.o
-*.idea
+*.idea*
 *.bin
 *.so
 *.out

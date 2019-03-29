@@ -34,7 +34,8 @@ aws.project.version=local
 local.aws.output=aws
 
 graph.dimension=4
-
+start.vertex = 2
+end.vertex = 9
 # [II]. Basic statistics
 # Number of Nodes: 11,316,811
 # Number of Edges: 85,331,846
@@ -56,7 +57,7 @@ clean-local-log:
 
 # Runs standalone
 local: jar clean-local-output
-	spark-submit --class ${job.name} --master ${local.master} --name "${app.name}" ${jar.path} ${local.input} ${local.output} ${graph.dimension}
+	spark-submit --class ${job.name} --master ${local.master} --name "${app.name}" ${jar.path} ${local.input} ${local.output} ${graph.dimension} ${start.vertex} ${end.vertex}
 
 # Start HDFS
 start-hdfs:
