@@ -14,6 +14,7 @@ using namespace std;
 // Global Variables
 string file_name = "input_data.csv";
 string com = ",";
+string new_line = "\n";
 
 
 
@@ -34,8 +35,10 @@ int main (int argc, char *argv[]) {
 
 		Input input;
 		get_inputs (argc, argv, input, 1);
-		string 
+		string line_val;
+		ofstream input_file;
 		for (long i=0; i < MAT_DIM * MAT_DIM) {
+				line_val = to_string(i) + com;
 
 		}
 		// CITE: https://stackoverflow.com/questions/25201131/writing-csv-files-from-c
