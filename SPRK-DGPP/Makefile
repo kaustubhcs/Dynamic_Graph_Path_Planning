@@ -4,8 +4,8 @@
 # -----------------------------------------------------------
 spark.root=${SPARK_HOME}
 hadoop.root=${HADOOP_HOME}
-app.name=Page Rank
-jar.name=spark-pagerank-1.0.jar
+app.name=Dynamic Path Planning
+jar.name=spark-dpp-1.0.jar
 jar.path=target/${jar.name}
 job.name=pr.path_plan
 local.input=input
@@ -29,13 +29,13 @@ aws.log.dir=log
 aws.num.nodes=5
 aws.instance.type=m4.large
 # update job version before running job
-aws.project.name=hw4-spark
-aws.project.version=local
+aws.project.name=DGPP-project
+aws.project.version=v1
 local.aws.output=aws
 
-graph.dimension=100
+graph.dimension=500
 start.vertex = 1
-end.vertex = 10000
+end.vertex = 250000
 # [II]. Basic statistics
 # Number of Nodes: 11,316,811
 # Number of Edges: 85,331,846
@@ -117,7 +117,7 @@ make-bucket:
 
 # Upload data to S3 input dir.
 upload-input-aws: make-bucket
-	aws s3 sync ${local.input} s3://${aws.bucket.name}/${aws.input}
+	aws s3 sync ${local.input} s3://${aws.bucket.name}/${aws.project.name}/${aws.input}
 	
 # Delete S3 output dir.
 delete-output-aws:
@@ -134,7 +134,7 @@ aws: jar upload-app-aws delete-output-aws
 		--release-label ${aws.emr.release} \
 		--instance-groups '[{"InstanceCount":${aws.num.nodes},"InstanceGroupType":"CORE","InstanceType":"${aws.instance.type}"},{"InstanceCount":1,"InstanceGroupType":"MASTER","InstanceType":"${aws.instance.type}"}]' \
 	    --applications Name=Hadoop Name=Spark \
-		--steps Type=CUSTOM_JAR,Name="${app.name}",Jar="command-runner.jar",ActionOnFailure=TERMINATE_CLUSTER,Args=["spark-submit","--deploy-mode","cluster","--class","${job.name}","s3://${aws.bucket.name}/${aws.project.name}/${aws.project.version}/${jar.name}","s3://${aws.bucket.name}/${aws.input}","s3://${aws.bucket.name}/${aws.project.name}/${aws.project.version}/${aws.output}","${max.id}"] \
+		--steps Type=CUSTOM_JAR,Name="${app.name}",Jar="command-runner.jar",ActionOnFailure=TERMINATE_CLUSTER,Args=["spark-submit","--deploy-mode","cluster","--class","${job.name}","s3://${aws.bucket.name}/${aws.project.name}/${aws.project.version}/${jar.name}","s3://${aws.bucket.name}/${aws.project.name}/${aws.input}","s3://${aws.bucket.name}/${aws.project.name}/${aws.project.version}/${aws.output}","${graph.dimension}","${start.vertex}","${end.vertex}"] \
 		--log-uri s3://${aws.bucket.name}/${aws.project.name}/${aws.project.version}/${aws.log.dir} \
 		--use-default-roles \
 		--enable-debugging \
