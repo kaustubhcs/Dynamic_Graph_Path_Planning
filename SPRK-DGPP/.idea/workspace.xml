@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="c0387b1e-2c15-4332-aad0-632f585633cb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -10,6 +11,9 @@
       <change beforePath="$PROJECT_DIR$/target/classes.1268940461.timestamp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
     </list>
+=======
+    <list default="true" id="c0387b1e-2c15-4332-aad0-632f585633cb" name="Default Changelist" comment="" />
+>>>>>>> 8f287ad47e6914063efc1b98e320f4b4d9c38a64
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,8 +35,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/pr/DGPP.scala">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="587">
               <caret line="194" column="39" lean-forward="true" selection-start-line="194" selection-start-column="39" selection-end-line="194" selection-end-column="39" />
+=======
+            <state relative-caret-position="745">
+              <caret line="124" column="63" lean-forward="true" selection-start-line="124" selection-start-column="63" selection-end-line="124" selection-end-column="63" />
+>>>>>>> 8f287ad47e6914063efc1b98e320f4b4d9c38a64
               <folding>
                 <element signature="e#12#45#0" expanded="true" />
               </folding>
@@ -90,7 +99,7 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="3750" />
     <option name="y" value="1395" />
     <option name="width" value="929" />
@@ -151,7 +160,11 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+<<<<<<< HEAD
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553833326923" />
+=======
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553827672133" />
+>>>>>>> 8f287ad47e6914063efc1b98e320f4b4d9c38a64
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -234,7 +247,11 @@
     <option name="totallyTimeSpent" value="33879000" />
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
+=======
+    <frame x="2970" y="1049" width="2560" height="1415" extended-state="7" />
+>>>>>>> 8f287ad47e6914063efc1b98e320f4b4d9c38a64
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27110156" />
@@ -364,8 +381,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/pr/DGPP.scala">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="587">
           <caret line="194" column="39" lean-forward="true" selection-start-line="194" selection-start-column="39" selection-end-line="194" selection-end-column="39" />
+=======
+        <state relative-caret-position="745">
+          <caret line="124" column="63" lean-forward="true" selection-start-line="124" selection-start-column="63" selection-end-line="124" selection-end-column="63" />
+>>>>>>> 8f287ad47e6914063efc1b98e320f4b4d9c38a64
           <folding>
             <element signature="e#12#45#0" expanded="true" />
           </folding>
