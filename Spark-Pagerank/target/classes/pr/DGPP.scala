@@ -13,16 +13,12 @@ import scala.collection.mutable.ListBuffer
 
 object DGPP {
   
-  def getGraphs(k: Int): ListBuffer[(Int, Int)] = {
+  def generateGraph(blocked_points: RDD[(Int, Int)]): ListBuffer[(Int, ListBuffer[Int])] = {
 
-      val graphList = new ListBuffer[(Int, Int)]
-      for (i <- 1 until k * k) {
+      val graphList = new ListBuffer[(Int, ListBuffer[Int])]
+      for (i <- 1 until 10 * 10) {
+        
 
-        if (i % k != 0)
-        // graphList. += ((i, 0))
-        //  else 
-        graphList. += ((i, i + 1))
-        // graphList.+=((0,i))
       }
       return graphList
     }
@@ -47,7 +43,7 @@ object DGPP {
     val blocked_points :RDD[(Int, Int)] = textFile.map{x => val y = x.split(',')
                                                       (y(0).toInt , y(1).toInt)}
 
-    
+
     blocked_points.collect().foreach(println)
 
     
