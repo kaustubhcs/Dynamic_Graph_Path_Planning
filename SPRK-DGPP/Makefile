@@ -33,9 +33,9 @@ aws.project.name=hw4-spark
 aws.project.version=local
 local.aws.output=aws
 
-graph.dimension=4
-start.vertex = 2
-end.vertex = 9
+graph.dimension=1000
+start.vertex = 1
+end.vertex = 4000
 # [II]. Basic statistics
 # Number of Nodes: 11,316,811
 # Number of Edges: 85,331,846
