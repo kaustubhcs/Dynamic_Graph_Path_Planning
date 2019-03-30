@@ -5,7 +5,6 @@ import org.apache.spark.SparkContext
 import org.apache.log4j.LogManager
 import org.apache.spark.rdd.RDD
 
-import scala.collection.mutable
 import scala.collection.mutable.Set
 import scala.collection.mutable.LinkedHashSet
 
@@ -53,7 +52,7 @@ object path_plan {
       for (i <- 1 to n * n;
            if !blocked_points.contains(i)) {
 
-        var edgeList: Set[Int] = Set()
+        var edgeList: Set[Int] =  Set()
 
         if ((i - n) > 0  && !blocked_points.contains(i-n)){
           edgeList.+=(i-n)
@@ -94,7 +93,7 @@ object path_plan {
         activation_state = "ACTIVE"
         distance = 0
       }
-      val empty_list : LinkedHashSet[Int] = LinkedHashSet()
+      val empty_list : LinkedHashSet[Int] = new LinkedHashSet()
       return (node_data._1,(node_data._2,distance,empty_list,activation_state))
     }
 
@@ -128,46 +127,35 @@ object path_plan {
     }
 
     def path_reduce(node_metadata_1: (Set[Int],Int,LinkedHashSet[Int],String), node_metadata_2: (Set[Int],Int,LinkedHashSet[Int],String)) : (Set[Int],Int,LinkedHashSet[Int],String) = {
-
-
       val adj_list_1 = node_metadata_1._1
       val adj_list_2 = node_metadata_2._1
-
       val distance_1 = node_metadata_1._2
       val distance_2 = node_metadata_2._2
-
       val path2start_1 = node_metadata_1._3
       val path2start_2 = node_metadata_2._3
-
       val activation_1 = node_metadata_1._4
       val activation_2 = node_metadata_2._4
       var adj_list_final: Set[Int] = Set()
-      var path2start_final:LinkedHashSet[Int] = LinkedHashSet()
+      var path2start_final:LinkedHashSet[Int] = new LinkedHashSet()
       var distance_final = INF_DIST
       var activation_final = "INACTIVE"
-
       if (adj_list_1.size > 0){
         adj_list_final = adj_list_final.++(adj_list_1)
       }
-
       if (adj_list_2.size > 0){
         adj_list_final = adj_list_final.++(adj_list_2)
       }
-//      println(KTB_error_stamp + "OUT distance loop" + " " + distance_1 + " " +distance_2 + " " +distance_final)
       if (distance_final > distance_1){
-//        println(KTB_error_stamp + "in distance loop")
         distance_final = distance_1
         path2start_final = LinkedHashSet()
         path2start_final = path2start_final.++(path2start_1)
 
       }
-
       if (distance_final > distance_2){
         distance_final = distance_2
         path2start_final = LinkedHashSet()
         path2start_final = path2start_final.++(path2start_2)
       }
-
       if (activation_1  == "DONE"|| activation_2 == "DONE"){
         activation_final = "DONE"
       } else if(activation_1  == "ACTIVE"|| activation_2 == "ACTIVE"){
@@ -175,7 +163,6 @@ object path_plan {
       }else if (activation_1  == "INACTIVE"|| activation_2 == "INACTIVE"){
         activation_final = "INACTIVE"
       }
-
   return (adj_list_final, distance_final, path2start_final, activation_final)
     }
 
