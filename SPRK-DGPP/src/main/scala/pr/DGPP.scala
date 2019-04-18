@@ -26,7 +26,7 @@ object path_plan {
     val KTB_info_stamp: String = "[\u001b[0;36;01mKTB\u001b[m] "
     val KTB_warn_stamp: String = "[\u001b[0;33;05;01mKTB\u001b[m] "
     val KTB_error_stamp: String = "[\u001b[0;31;05;01mKTB\u001b[m] "
-    val longest_path = args(MATRIX_DIMENSION).toInt * args(MATRIX_DIMENSION).toInt / 2
+    val longest_path = args(MATRIX_DIMENSION).toInt * args(MATRIX_DIMENSION).toInt / 2 + 1
     val logger: org.apache.log4j.Logger = LogManager.getRootLogger
 
     // if (args.length != 2) {

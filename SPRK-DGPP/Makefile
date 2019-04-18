@@ -7,7 +7,7 @@ hadoop.root=${HADOOP_HOME}
 app.name=Dynamic Path Planning
 jar.name=spark-dpp-1.0.jar
 jar.path=target/${jar.name}
-job.name=pr.path_plan
+job.name=pr.node_wise_path_plan
 local.input=input
 # local.input=../../../data/Twitter-dataset/data
 local.master=local[4]
@@ -30,12 +30,12 @@ aws.num.nodes=5
 aws.instance.type=m4.large
 # update job version before running job
 aws.project.name=DGPP-project
-aws.project.version=v3-n-200-clusters-5
+aws.project.version=local
 local.aws.output=aws
 
-graph.dimension=20
+graph.dimension=3
 start.vertex = 1
-end.vertex = 400
+end.vertex = 6
 # [II]. Basic statistics
 # Number of Nodes: 11,316,811
 # Number of Edges: 85,331,846
@@ -48,7 +48,7 @@ jar:
 
 # Removes local output directory.
 clean-local-output:
-	# rm -rf ${local.output}/local
+	rm -rf ${local.output}/local
 	rm -rf ${local.output}/${aws.project.version}
 
 # Removes local log directory.
