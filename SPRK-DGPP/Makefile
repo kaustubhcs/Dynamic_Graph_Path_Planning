@@ -30,12 +30,12 @@ aws.num.nodes=5
 aws.instance.type=m4.large
 # update job version before running job
 aws.project.name=DGPP-project
-aws.project.version=local
+aws.project.version=v1-nodewise-5-clusters-n-200
 local.aws.output=aws
 
-graph.dimension=3
-start.vertex = 1
-end.vertex = 6
+graph.dimension=200
+start.vertex =1
+end.vertex =40000
 # [II]. Basic statistics
 # Number of Nodes: 11,316,811
 # Number of Edges: 85,331,846
