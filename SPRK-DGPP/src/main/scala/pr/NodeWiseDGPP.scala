@@ -10,7 +10,6 @@ import scala.collection.mutable
 import scala.collection.mutable.Set
 import scala.collection.mutable.LinkedHashSet
 
-// $example off$
 import org.apache.spark.sql.SparkSession
 
 
@@ -31,12 +30,6 @@ object node_wise_path_plan {
     val KTB_error_stamp: String = "[\u001b[0;31;05;01mKTB\u001b[m] "
     val longest_path = args(MATRIX_DIMENSION).toInt * args(MATRIX_DIMENSION).toInt / 2
     val logger: org.apache.log4j.Logger = LogManager.getRootLogger
-
-    // if (args.length != 2) {
-    //   logger.error("Usage:\npr.PageRankMain <k> <output dir>")
-    //   System.exit(1)
-    // }
-
 
 
 
@@ -85,25 +78,7 @@ object node_wise_path_plan {
       }
       return graphList
     }
-//
-//    // ********************************************* Vertex | Adj_list | Distance to Start | Path to start | ACTIVATION_STATUS
-//    // Int Vertex
-//    // List[Int] Adj_list
-//    // Int Distance to Start
-//    // List[Int] Path to start
-//    // String ACTIVATION_STATUS
-//
-//    def metadata_add(node_data:(Int, Set[Int])) : (Int,(Set[Int],Int,LinkedHashSet[Int],String)) = {
-//      var activation_state = "INACTIVE"
-//      var distance = INF_DIST
-//
-//      if (node_data._1 == args(START_VERTEX).toInt) {
-//        activation_state = "ACTIVE"
-//        distance = 0
-//      }
-//      val empty_list : LinkedHashSet[Int] = new LinkedHashSet()
-//      return (node_data._1,(node_data._2,distance,empty_list,activation_state))
-//    }
+
 
     def sssp(x:Int, adj_list: Broadcast[Map[Int, Set[Int]]]): ListBuffer[(Int, Int, LinkedHashSet[Int], Int)] ={
       val visited: Set[Int] = Set()
@@ -141,33 +116,7 @@ object node_wise_path_plan {
     val broadcast_adj_list = sc.broadcast(gen_graph.toMap)
     val start_points : ListBuffer[Int] = getStartPoints(block_point_set)
     val start_point_rdd = sc.parallelize(start_points).flatMap(x => sssp(x, broadcast_adj_list))
-    start_point_rdd.collect().foreach(println)
     start_point_rdd.saveAsTextFile(args(1))
-//     var final_graph = sc.parallelize(gen_graph).map( x => metadata_add(x))
-//     var done_count_before_planning = 0l
-//     var done_count_after_planning = 1l
-//     var looping_counter = 0
-//     for (i <- 1 until longest_path
-//       if done_count_before_planning != done_count_after_planning) {
-
-//       if (i % 10 == 0){
-//         done_count_before_planning = final_graph.filter(x => x._2._4 == "DONE").count()
-//       }
-
-
-//       final_graph = final_graph.flatMap(path_map)
-//       final_graph = final_graph.reduceByKey(path_reduce)
-//       if (i % 10 == 0){
-//         done_count_after_planning = final_graph.filter(x => x._2._4 == "DONE").count()
-//       }
-//       looping_counter += 1
-
-//     }
-//     logger.info( KTB_warn_stamp + "ran for "+ looping_counter + " iterations")
-// //    final_graph.collect.foreach( x => logger.info(KTB_warn_stamp + x.toString()))
-// //    final_graph.reduceByKey(path_reduce).flatMap(path_map).reduceByKey(path_reduce).flatMap(path_map).reduceByKey(path_reduce).flatMap(path_map).reduceByKey(path_reduce).flatMap(path_map).reduceByKey(path_reduce).flatMap(path_map).reduceByKey(path_reduce).flatMap(path_map).reduceByKey(path_reduce).flatMap(path_map).reduceByKey(path_reduce).flatMap(path_map).reduceByKey(path_reduce).flatMap(path_map).reduceByKey(path_reduce).flatMap(path_map).reduceByKey(path_reduce).flatMap(path_map).reduceByKey(path_reduce).flatMap(path_map).collect.foreach( x => logger.info(KTB_warn_stamp + x.toString()))
-//     final_graph.collect.foreach(x => logger.info(KTB_warn_stamp + x.toString()))
-//     final_graph.saveAsTextFile(args(1))
 
     
 
