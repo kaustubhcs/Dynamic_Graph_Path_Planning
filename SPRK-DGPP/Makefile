@@ -30,7 +30,7 @@ aws.num.nodes=5
 aws.instance.type=m4.large
 # update job version before running job
 aws.project.name=DGPP-project
-aws.project.version=v2-all-pair-5-clusters-n-20
+aws.project.version=v2-all-pair-5-clusters-n-10
 local.aws.output=aws
 
 graph.dimension=20
